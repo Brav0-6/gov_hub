@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Example Navbar for Logged-in User (HTML) -->
+<style >
+    
+    </style>
+
+<header>
+    <nav>
+        
+           <a href="/" class="logo">Government Portal</a>
+           
+            <a href="/services" class="nav-link">Services</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/news" class="nav-link">News</a>
+
+           
+        
+    </nav>
+    
+        <div class="news-ticker-container">
+            <div class="news-ticker">
+                {% for news in important_news %}
+                    <span>{{ news }} &bull; </span>
+                {% endfor %}
+            </div>
+        </div>
+    
+</header>
+
+<div >
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <h1>Welcome, {{ user.first_name }}!</h1>
+        <p class="welcome-message">{{ personalized_message }}</p>
+    </section>
+
+    <!-- News Section -->
+   
+
+ <section class="services-section">
+        <h2>Quick Access to Government Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3><a href="https://uidai.gov.in" target="_blank">Aadhaar Services</a></h3>
+                <p>Update or retrieve your Aadhaar information.</p>
+            </div>
+            <div class="service-card">
+                <h3><a href="https://incometaxindia.gov.in" target="_blank">Income Tax Portal</a></h3>
+                <p>File your taxes and check refunds.</p>
+            </div>
+            <div class="service-card">
+                <h3><a href="https://www.epfindia.gov.in" target="_blank">EPF Services</a></h3>
+                <p>Access your provident fund account and manage claims.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Government Schemes -->
+    <section class="schemes-section">
+        <h2>Popular Government Schemes</h2>
+        <ul>
+            <li><a href="https://pmjdy.gov.in" target="_blank">Pradhan Mantri Jan Dhan Yojana</a></li>
+            <li><a href="https://www.pmindia.gov.in/en/government_schemes" target="_blank">Startup India</a></li>
+            <li><a href="https://swachhbharatmission.gov.in" target="_blank">Swachh Bharat Mission</a></li>
+            <li><a href="https://ujjwala.gov.in" target="_blank">Pradhan Mantri Ujjwala Yojana</a></li>
+        </ul>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news-section">
+        <h2>Latest Government News</h2>
+        <div id="news-container">
+            <!-- News items fetched dynamically -->
+        </div>
+    </section>
+    <!-- Government Links Section -->
+    <section class="links-section">
+        <h2>Important Government Portals</h2>
+        <div class="links-grid">
+            {% for link in government_links %}
+                <div class="link-card">
+                    <a href="{{ link.url }}" target="_blank">
+                        <h3>{{ link.name }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+  
+   
+   
+<div/>
+{% endblock %}

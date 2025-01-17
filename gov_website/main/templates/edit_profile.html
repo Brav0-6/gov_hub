@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Profile</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="first_name" value="{{ user.first_name }}" placeholder="First Name" required><br>
+    <input type="text" name="last_name" value="{{ user.last_name }}" placeholder="Last Name" required><br>
+    <input type="date" name="dob" value="{{ user.dob|date:'Y-m-d' }}" required><br>
+    <input type="text" name="phone" value="{{ user.phone }}" placeholder="Phone" required><br>
+    <input type="email" name="email" value="{{ user.email }}" placeholder="Email" required><br>
+    <input type="text" name="state" value="{{ user.state }}" placeholder="State" required><br>
+    <input type="text" name="district" value="{{ user.district }}" placeholder="District" required><br>
+    <input type="text" name="panchayat" value="{{ user.panchayat }}" placeholder="Panchayat" required><br>
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'profile' %}" class="button">Back to Profile</a>
+
+{% endblock %}

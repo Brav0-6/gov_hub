@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cas/style.css' %}">
+    <title>Government Site</title>
+    <style>
+     
+    </style>
+    
+        </style>
+    
+</head>
+<body>
+    <header class="site-header">
+    <h1 class="site-title">Government Site</h1>
+        <p class="site-tagline">Your One-Stop Solution for Medicine Information</p>
+</header>
+
+    <div>
+    <nav>
+        
+        
+    
+    
+    {% if request.session.username %}
+        <a href="{% url 'home_logged_in' %}">Home</a>
+        <a href="{% url 'profile' %}">Profile </a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <div class="profile-container">
+            <div class="profile-icon" onclick="toggleProfilePage()">
+                <img src="profile.webp" alt="Profile Icon">
+            </div>
+            <div class="profile-page" id="profilePage">
+                <h2>{{request.session.username}}</h2>
+                <p>{{request.session.email}}</p>
+              <button onclick="logout()">  <a href="{% url 'logout' %}">Logout</a></button>
+            </div>
+        
+    {% else %}
+    <div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+        <div class="profile-container">
+            <div class="profile-icon" onclick="toggleProfilePage()">
+                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png" alt="Profile Icon">
+
+            </div>
+            <div class="profile-page" id="profilePage">
+                
+                <button onclick="logout()"> <a href="{% url 'register' %}">Register</a>
+        </button><br><br>
+        <button onclick="logout()"> 
+        <a href="{% url 'login' %}">Login</a></button>
+            </div>
+            </div>
+    {% endif %}
+    <div>
+        
+        </div>
+    </nav>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="chatbot-icon">🤖  
+        
+    </div>
+
+    <footer class="footer">
+       
+        <p>Contact: support@medicineinfosite.com | Phone: 1234567890</p>
+        <p>&copy; 2025 Medicine Info Site. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="#"><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook"></a>
+            <a href="#"><img src="{% static 'images/twitter-icon.png' %}" alt="Twitter"></a>
+            <a href="#"><img src="{% static 'images/instagram-icon.png' %}" alt="Instagram"></a>
+        </div>
+    </footer>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+</html>

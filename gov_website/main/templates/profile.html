@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Example Navbar for Logged-in User (HTML) -->
+<header>
+    <nav>
+        <ul>
+            <a href="/" class="logo">Government Portal</a>
+            <a href="/home" class="nav-link">Home</a>
+            <a href="/services" class="nav-link">Services</a>
+            <a href="/contact" class="nav-link">Contact</a>
+            <a href="/news" class="nav-link">News</a>
+
+
+            <!-- Profile Icon and Name -->
+           
+        </ul>
+    </nav>
+</header>
+<h1>User Profile</h1>
+
+<div>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
+    <p><strong>Phone:</strong> {{ user.phone }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>State:</strong> {{ user.state }}</p>
+    <p><strong>District:</strong> {{ user.district }}</p>
+    <p><strong>Panchayat:</strong> {{ user.panchayat }}</p>
+</div>
+
+<a href="{% url 'edit_profile' %}" class="button">Edit Profile</a>
+{% endblock %}
