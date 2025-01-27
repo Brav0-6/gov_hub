@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels'
 ]
 STATIC_URL='/Static/'
 
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'gov_website.urls'
+
+ASGI_APPLICATION = 'chatbot_project.asgi.application'
 
 TEMPLATES = [
     {
